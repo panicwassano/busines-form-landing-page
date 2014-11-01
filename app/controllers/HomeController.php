@@ -14,18 +14,30 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-	protected $claim;
 
+	/**
+	 * Controller constructor
+	 */
 	public function __construct()
     {
         $this->beforeFilter('csrf', array('on' => 'post'));
     }
 
+    /**
+     * Index route with get method
+     * 
+     * @return void
+     */
 	public function getIndex()
 	{
 		return View::make('pages.index');
 	}
 
+	/**
+	 * Index route with post method
+	 * 
+	 * @return void
+	 */
 	public function postIndex()
 	{	
 		if(Request::ajax())
@@ -39,6 +51,8 @@ class HomeController extends BaseController {
 
 			$claim = new Claim(Input::all());
 			$claim->save();
+
+			Event::fire('models.claim.create', [$claim]);
 
 			return ['success' => 'true'];
 		}
