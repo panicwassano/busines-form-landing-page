@@ -16,7 +16,8 @@ ClassLoader::addDirectories(array(
 	app_path().'/commands',
 	app_path().'/controllers',
 	app_path().'/models',
-	app_path().'/database/seeds',
+    app_path().'/database/seeds',
+	app_path().'/event',
 
 ));
 
@@ -79,3 +80,12 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Require The events file
+|--------------------------------------------------------------------------
+| Event subscribers and listeners
+|
+*/
+require app_path().'/events.php';
