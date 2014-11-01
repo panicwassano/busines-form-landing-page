@@ -14,10 +14,21 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	protected $claim;
 
-	public function showWelcome()
+	public function __construct(Claim $claim)
+    {
+    	$this->$claim = $claim;
+        $this->beforeFilter('csrf', array('on' => 'post'));
+    }
+
+	public function getIndex()
 	{
-		return View::make('hello');
+		return View::make('pages.index');
 	}
 
+	public function postIndex()
+	{
+		return Redirect::back(); 
+	}
 }
