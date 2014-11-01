@@ -16,9 +16,8 @@ class HomeController extends BaseController {
 	*/
 	protected $claim;
 
-	public function __construct(Claim $claim)
+	public function __construct()
     {
-    	$this->$claim = $claim;
         $this->beforeFilter('csrf', array('on' => 'post'));
     }
 
@@ -28,7 +27,23 @@ class HomeController extends BaseController {
 	}
 
 	public function postIndex()
-	{
+	{	
+		if(Request::ajax())
+		{
+			$validator = Validator::make(Input::all(), Claim::$rules, Claim::$messages);
+
+			if($validator->fails())
+			{
+				return $validator->messages();
+			}
+
+			$claim = new Claim(Input::all());
+			$claim->save();
+
+			return ['success' => 'true'];
+		}
+		
+
 		return Redirect::back(); 
 	}
 }
