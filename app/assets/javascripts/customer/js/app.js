@@ -14,7 +14,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "mail.php",
+			url: ths.attr('action'),
 			beforeSend: function(){
 				$(".header_form_input, .popup_form_input").removeClass("header_form_input_error");
 			},
