@@ -7,7 +7,7 @@
     @show
     
     @section('stylesheets')
-        <link rel="stylesheet" href="/css/main.css">
+        {{-- expr --}}
     @show
 </head>
 <body>
