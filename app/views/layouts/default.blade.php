@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     @section('title')
         <title>Laravel PHP Framework</title>
-    @stop
+    @show
     
     @section('stylesheets')
-        {{-- expr --}}
-    @stop
+        <link rel="stylesheet" href="/css/main.css">
+    @show
 </head>
 <body>
     <div class="container">
-        @yield('content');
+        @yield('content')
     </div>
     @section('javascripts')
         {{-- expr --}}
-    @stop
+    @show
 </body>
 </html>
