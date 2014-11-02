@@ -26,6 +26,7 @@ $(document).ready(function(){
                     ths.slideUp(200, function(){
                         ths.trigger('reset');
                         ths.remove();
+                        $successBlock.find('p').text('Спасибо! Ваша заявка успешна отправлена, мы свяжемся с вами в ближайшее время.');
                         $successBlock.fadeIn();
                     });
 

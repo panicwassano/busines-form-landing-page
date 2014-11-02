@@ -18,7 +18,7 @@
                 {{ Form::text('phone', '', ['class' => 'header_form_input header_form_input_phone', 'placeholder' => 'ВАШ-ТЕЛЕФОН']) }}
             </li>
             <li class="submit">
-                {{ Form::submit('', ['class' => 'header_form_submit']) }}
+                {{ Form::submit('', ['class' => 'header_form_submit', 'id' => 'header_form_submit']) }}
             </li>
         </ul>
         <div class="content_main_form_message">
@@ -29,7 +29,7 @@
     {{ Form::close() }}
     <div class="content_main_form_success">
         <p>
-            Спасибо! Ваша заявка успешна отправлена, мы свяжемся с вами в ближайшее время.
+            
         </p>
     </div>
 </div>
