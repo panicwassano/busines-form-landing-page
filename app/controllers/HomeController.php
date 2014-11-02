@@ -58,6 +58,6 @@ class HomeController extends BaseController {
 		}
 		
 
-		return Redirect::to('/')->withInput(); 
+		return Redirect::to(URL::current())->withInput(); 
 	}
 }
