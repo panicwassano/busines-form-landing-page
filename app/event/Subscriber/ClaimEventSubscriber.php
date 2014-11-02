@@ -3,13 +3,31 @@
 namespace Subscriber;
 
 use \Claim as Claim;
-use \Mail as Mail;
+use \Illuminate\Mail\Mailer;
 
 /**
  * Claim event subscriber
  */
 class ClaimEventSubscriber {
- 
+    
+    /**
+     * The mailer instance.
+     *
+     * @var \Illuminate\Mail\Mailer
+     */
+    protected $mailer;
+
+    /**
+     * Create a new ClaimEventSubscriber instance.
+     *
+     * @param  \Illuminate\Mail\Mailer  $mailer
+     * @return void
+     */
+    public function __construct(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+
     /**
     * When a user is created
     */
@@ -17,7 +35,7 @@ class ClaimEventSubscriber {
     {
         if($event instanceof Claim)
         {
-            Mail::send(['html' => 'emails.form.claim.admin'], ['claim' => $event], function($message)
+            $this->mailer->send(['html' => 'emails.form.claim.admin'], ['claim' => $event], function($message)
             {
                 $message->to('testcpp@yandex.ru', 'Azat Kamalov')->subject('New claim ticket');
             });
