@@ -14,4 +14,18 @@ class ExampleTest extends TestCase {
 		$this->assertTrue($this->client->getResponse()->isOk());
 	}
 
+	/**
+	 * A basic form submit test
+	 *
+	 * @return void
+	 */
+	public function testSubmitClaimForm()
+	{
+		$crawler = $this->client->request('GET', '/');
+		$form    = $crawler->filter('.header_form_submit')->form();
+		$crawler = $this->client->submit($form, array('name' => 'Азат', 'phone' => '555333444'));
+
+		$this->assertRedirectedTo('/');
+	}
+
 }
