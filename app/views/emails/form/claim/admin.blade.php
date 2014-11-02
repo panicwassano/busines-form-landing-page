@@ -1,4 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+    </head>
     <body>
         <p><strong>You recieve new claim ticket:</strong></p>
         <p>
