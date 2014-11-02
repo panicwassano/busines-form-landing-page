@@ -1,0 +1,13 @@
+default:
+    autoload:
+        '': %paths.base%/app/tests/acceptance/features/bootstrap
+    suites:
+        core_features:
+            paths: [ %paths.base%/app/tests/acceptance/features ]
+    extensions:
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            base_url: http://laravel.app
+            default_session: zombie
+            javascript_session: zombie
+            zombie:
+                node_modules_path: '/usr/lib/node_modules/'
