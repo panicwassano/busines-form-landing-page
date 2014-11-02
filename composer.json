@@ -8,6 +8,12 @@
 		"barryvdh/laravel-debugbar": "~1.7",
 		"codesleeve/asset-pipeline": "~2.0"
 	},
+	"require-dev": {
+		"behat/behat": "~3.0.6",
+		"behat/mink": "1.6.*@stable",
+		"behat/mink-extension": "*",
+		"behat/mink-goutte-driver": "*"
+	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
