@@ -24,7 +24,10 @@
 			"app/database/seeds",
 			"app/event",
 			"app/tests/TestCase.php"
-		]
+		],
+		"psr-0": {
+			"Panic": "app/"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [

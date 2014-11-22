@@ -21,6 +21,9 @@ class HomeController extends BaseController {
 	public function __construct()
     {
         $this->beforeFilter('csrf', array('on' => 'post'));
+        $this->beforeFilter('cache.fetch');
+
+        $this->afterFilter('cache.put');
     }
 
     /**
